@@ -1,0 +1,43 @@
+#cloud-config
+
+write_files:
+  - path: /tmp/setup_script.sh
+    permissions: '0755'
+    content: |
+      #!/bin/bash
+      
+      # Variables
+      USERNAME="ubuntu"
+      PUBLIC_KEY="${public_key}"
+
+      # Create a new user and their home directory
+      adduser --gecos "" --disabled-password --home "/home/$USERNAME" $USERNAME
+
+      # Create .ssh directory and set permissions
+      mkdir /home/$USERNAME/.ssh
+      chmod 700 /home/$USERNAME/.ssh
+
+      # Copy the public key
+      echo "$PUBLIC_KEY" >> /home/$USERNAME/.ssh/authorized_keys
+
+      # Set correct permissions for the public key
+      chmod 600 /home/$USERNAME/.ssh/authorized_keys
+      chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh
+
+      # Install python and necessary dependencies
+      apt update
+      apt install -y python3 python3-pip
+
+      # Add user to sudoers and set NOPASSWD
+      echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+      # Install necessary dependencies
+      apt-get update
+      apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+
+      # Remove Swap for fstab
+      swapoff -a
+      sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+
+runcmd:
+  - bash /tmp/setup_script.sh
