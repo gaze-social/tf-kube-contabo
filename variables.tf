@@ -37,3 +37,13 @@ variable "password" {
 variable "public_key" {
   description = "SSH Public Key for VPS"
 }
+
+variable "master_count" {
+  description = "Count of VPS for Master Nodes"
+  default = 3
+}
+
+variable "workers_count" {
+  description = "Count of VPS for Worker Nodes"
+  default = 3
+}

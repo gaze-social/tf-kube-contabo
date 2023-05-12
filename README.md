@@ -33,6 +33,7 @@ username      = ""
 password      = ""
 public_key    = ""
 ```
+`master_count` and `worker_count` can also be set these variables are default to `3` which meets minimum requirement for a high availabile cluster
 
 ### 3. Run Terraform
 
