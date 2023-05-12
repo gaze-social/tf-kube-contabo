@@ -22,7 +22,7 @@ ssh-keygen
 cat ~/.ssh/id_rsa.pub
 ```
 
-### 2. Create terraform.tfvars file
+### 2. Create `terraform.tfvars` file
 
 Provide the OAuth credentials and Public Key
    
@@ -33,7 +33,7 @@ username      = ""
 password      = ""
 public_key    = ""
 ```
-`master_count` and `worker_count` can also be set these variables are default to `3` which meets minimum requirement for a high availabile cluster
+`master_count` and `worker_count` variables can also be set and default is set `3` for both types which meets minimum requirement for a high availabile cluster
 
 ### 3. Run Terraform
 
