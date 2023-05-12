@@ -1,6 +1,6 @@
 # tf-kube-contabo
 
-This repository contains Terraform IaC configuration that set up a bare node cluster with SSH access, utilizing cloud-init to set up instances to prepare for [kube-spray](https://kubespray.io/) production-grade installation.
+This repository contains Terraform IaC configuration that set up a bare node cluster with SSH access, utilizing cloud-init to set up instances to prepare for [kube-spray](https://kubespray.io/) HA production-grade installation.
 
 ![](https://cdn.knoji.com/images/logo/contabo.jpg?aspect=center&snap=false&width=500&height=250)
 
