@@ -24,7 +24,7 @@ cat ~/.ssh/id_rsa.pub
 
 ### 2. Create `terraform.tfvars` file
 
-Provide the OAuth credentials and Public Key
+Provide the OAuth credentials and public key
    
 ```init
 client_id     = ""
